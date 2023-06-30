@@ -13,7 +13,7 @@ const jwtMiddleware = function (req, res, next) {
   }
 
   try {
-    const verifiedToken = jwt.verify(token, secret_config.jwtsecret);
+    const verifiedToken = jwt.verify(token, secret_config.jwtsecret); // verify : 검증 메서드
     req.verifiedToken = verifiedToken;
     next();
   } catch {

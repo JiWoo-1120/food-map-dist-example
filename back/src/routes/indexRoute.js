@@ -8,17 +8,28 @@ module.exports = function (app) {
 
   // 식당 목록 조회
   app.get("/restaurants", index.readRestaurants);
+
+  // 회원가입
+  app.post("/sign-up", index.createUsers);
+
+  // // 로그인
+  app.post("/sign-in", index.createJwt);
+
+  // // 로그인 유지, 토큰 검증
+  app.get("/jwt", jwtMiddleware, index.readJwt);
+
+
  
-  // 학생 테이블 조회
-  app.get("/students/:studentIdx", index.readStudents);
+  // // 학생 테이블 조회
+  // app.get("/students/:studentIdx", index.readStudents);
   
-  // 학생 생성
-  app.post("/students", index.createStudents);
+  // // 학생 생성
+  // app.post("/students", index.createStudents);
 
-  // 학생 정보 업데이트
-  app.patch("/students/:studentIdx", index.updateStudent);
+  // // 학생 정보 업데이트
+  // app.patch("/students/:studentIdx", index.updateStudent);
 
-  // 학생 삭제
-  app.delete("/students/:studentIdx", index.deleteStudent);
+  // // 학생 삭제
+  // app.delete("/students/:studentIdx", index.deleteStudent);
 
 };
